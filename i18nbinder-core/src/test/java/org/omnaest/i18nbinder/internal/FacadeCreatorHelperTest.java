@@ -83,7 +83,7 @@ public class FacadeCreatorHelperTest
     for ( String fileName : facadeFromPropertyFiles.keySet() )
     {
       //
-      final String basePath = new File( "" ).getAbsolutePath() + SEP +"target" + SEP + "generated-src" + SEP + "java" + SEP + packageBaseFolder + SEP + "facade" + SEP;
+      final String basePath = new File( "" ).getAbsolutePath() + SEP +"src" + SEP + "test" + SEP + "java" + SEP + packageBaseFolder + SEP + "facade" + SEP;
       final String fileContent = facadeFromPropertyFiles.get( fileName );
       
       //
