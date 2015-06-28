@@ -3,7 +3,7 @@ allprojects  {
   apply plugin: 'eclipse'
 
   group = 'org.omnaest.i18nbinder'
-  version = '0.1.17u1'
+  version = '0.1.17u2'
 }
 
 subprojects {
