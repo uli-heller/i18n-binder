@@ -29,14 +29,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
-import org.apache.poi.poifs.filesystem.POIFSFileSystem;
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.CreationHelper;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
+import org.apache.poi.ss.usermodel.WorkbookFactory;
 import org.apache.poi.xssf.streaming.SXSSFWorkbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  * Simple representation of an XLS file of Microsoft Excel.
@@ -97,6 +96,9 @@ public class XLSFile implements Serializable
       InputStream inputStream = new BufferedInputStream( new FileInputStream( this.file ) );
       Workbook wb = this.newWorkbookFrom( inputStream );
       Sheet sheet = wb.getSheet( MAINSHEETPAGENAME );
+      if (sheet == null) {
+         sheet = wb.getSheetAt(0);
+      }
       
       //
       this.clear();
@@ -135,21 +137,12 @@ public class XLSFile implements Serializable
   
   private Workbook newWorkbookFrom( InputStream inputStream ) throws IOException
   {
-    //
-    Workbook retval = null;
-    
-    //
-    if ( this.useXLSXFileFormat() )
-    {
-      retval = new XSSFWorkbook( inputStream );
-    }
-    else
-    {
-      retval = new HSSFWorkbook( new POIFSFileSystem( inputStream ) );
-    }
-    
-    //
+    try {
+    Workbook retval = WorkbookFactory.create(inputStream);
     return retval;
+    } catch (Exception e) {
+       throw new IOException(e);
+    }
   }
   
   private Workbook newWorkbookToWrite()
