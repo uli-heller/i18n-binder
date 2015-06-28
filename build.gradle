@@ -20,7 +20,7 @@ subprojects {
   }
 
   configurations.all {
-}
+  }
 
   // Do not try to change this! Some of the junit tests
   // depend on these settings!  
