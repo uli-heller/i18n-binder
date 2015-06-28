@@ -76,7 +76,6 @@ sh /usr/share/doc/git/contrib/workdir/git-new-workdir . mvn-repo mvn-repo
     * `cd mvn-repo`
     * `git add .`
     * `git commit -m "New version 0.1.17u2"`
-    * `git tag v0.1.17u2`
     * `git push`
 
 ### Consuming
