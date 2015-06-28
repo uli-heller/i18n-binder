@@ -25,10 +25,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class FileGrouperTest
 {
@@ -38,10 +38,25 @@ public class FileGrouperTest
   {
   }
   
+  // https://github.com/uli-heller/i18n-binder/issues/2
+  // On windows, C: is a root directory, so the canonical path of C:\\TEMP is C:\TEMP.
+  // However, if you try this on linux, the result is quite different!
+  // The obvious way of handling this is something related to FileSystem.getRootDirectories().
+  // But since this is a Java7 method, we cannot use it.
+  private String getBase() throws Exception {
+     String TST="C:\\temp";
+     String base = "";
+     if (!TST.equals(new File("C:\\temp").getCanonicalPath())) {
+        base =new File(".").getCanonicalPath() + File.separator;
+     }
+     return base;
+  }
+  
   @Test
-  public void testDetermineFileGroupIdentifierToFileGroupMap()
+  public void testDetermineFileGroupIdentifierToFileGroupMap() throws Exception
   {
     //
+    String base = getBase();
     List<File> fileList = new ArrayList<File>();
     fileList.add( new File( "C:\\temp\\admin_de_DE.properties" ) );
     fileList.add( new File( "C:\\temp\\admin_en_US.properties" ) );
@@ -71,13 +86,13 @@ public class FileGrouperTest
     //
     assertEquals( 2, fileGroupIdentifierToFileGroupMap.size() );
     Set<String> fileGroupIdentifierSet = fileGroupIdentifierToFileGroupMap.keySet();
-    assertTrue( fileGroupIdentifierSet.contains( "C:\\temp\\admin_{locale}.properties" ) );
-    assertTrue( fileGroupIdentifierSet.contains( "C:\\temp\\article_{locale}.properties" ) );
+    assertTrue( fileGroupIdentifierSet.contains( base + "C:\\temp\\admin_{locale}.properties" ) );
+    assertTrue( fileGroupIdentifierSet.contains( base + "C:\\temp\\article_{locale}.properties" ) );
     
     //
     {
       //
-      FileGroup fileGroup = fileGroupIdentifierToFileGroupMap.get( "C:\\temp\\admin_{locale}.properties" );
+      FileGroup fileGroup = fileGroupIdentifierToFileGroupMap.get( base+"C:\\temp\\admin_{locale}.properties" );
       
       //
       Map<String, File> groupTokenToFileMap = fileGroup.getGroupTokenToFileMap();
@@ -87,7 +102,7 @@ public class FileGrouperTest
     }
     {
       //
-      FileGroup fileGroup = fileGroupIdentifierToFileGroupMap.get( "C:\\temp\\article_{locale}.properties" );
+      FileGroup fileGroup = fileGroupIdentifierToFileGroupMap.get( base+"C:\\temp\\article_{locale}.properties" );
       
       //
       Map<String, File> groupTokenToFileMap = fileGroup.getGroupTokenToFileMap();
