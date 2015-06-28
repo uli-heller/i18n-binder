@@ -33,5 +33,11 @@ subprojects {
       output.classesDir = 'target/test-classes'
       output.resourcesDir = 'target/test-classes'
     }
-  }  
+  }
+
+  clean {
+    delete += "bin";
+    delete += "build";
+    delete += "target";
+  }
 }
