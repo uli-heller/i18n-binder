@@ -3,7 +3,7 @@ allprojects  {
   apply plugin: 'eclipse'
 
   group = 'org.omnaest.i18nbinder'
-version = '0.1.18-SNAPSHOT'
+  version = '0.1.17u1'
 }
 
 subprojects {
@@ -39,5 +39,13 @@ subprojects {
     delete += "bin";
     delete += "build";
     delete += "target";
+  }
+
+  uploadArchives {
+    repositories {
+      mavenDeployer {
+        repository(url: "file:${rootDir}/mvn-repo/")
+      }
+    }
   }
 }
