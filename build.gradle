@@ -1,5 +1,6 @@
 allprojects  {
   apply plugin: 'maven'
+  apply plugin: 'eclipse'
 
   group = 'org.omnaest.i18nbinder'
 version = '0.1.18-SNAPSHOT'
