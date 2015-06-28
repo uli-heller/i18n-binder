@@ -28,7 +28,6 @@ import java.util.MissingResourceException;
 import org.apache.commons.lang3.ArrayUtils;
 import org.junit.Test;
 import org.omnaest.i18nbinder.internal.facade.I18nFacade.ResourceBasedTranslator;
-import org.omnaest.utils.structure.map.MapBuilder;
 import org.omnaest.utils.structure.map.MapUtils;
 
 public class I18nFacadeTest
