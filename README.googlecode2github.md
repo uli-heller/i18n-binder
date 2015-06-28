@@ -1,4 +1,4 @@
-I18N-BINDER
+I18N-BINDER: Transfer to GitHub
 ===========
 
 I copied this from [google code](https://code.google.com/p/i18n-binder/) to [github](https://github.com/uli-heller/i18n-binder). Here is the procedure:
