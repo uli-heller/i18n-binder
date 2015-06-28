@@ -21,6 +21,17 @@ subprojects {
 
   configurations.all {
 }
-  
-  
+
+  // Do not try to change this! Some of the junit tests
+  // depend on these settings!  
+  sourceSets {
+    main {
+      output.classesDir = 'target/classes'
+      output.resourcesDir = 'target/classes'
+    }
+    test {
+      output.classesDir = 'target/test-classes'
+      output.resourcesDir = 'target/test-classes'
+    }
+  }  
 }
