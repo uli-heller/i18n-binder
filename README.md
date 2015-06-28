@@ -79,3 +79,13 @@ sh /usr/share/doc/git/contrib/workdir/git-new-workdir . mvn-repo mvn-repo
     * `git push`
 
 ### Consuming
+
+Use this url for your mvn repo:
+https://raw.github.com/uli-heller/i18n-binder/mvn-repo/
+
+```
+repositories {
+    maven { url "https://raw.github.com/uli-heller/i18n-binder/mvn-repo/" }
+    ...
+}
+```
