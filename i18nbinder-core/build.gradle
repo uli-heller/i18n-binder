@@ -1,0 +1,7 @@
+
+description = 'i18nBinder-core module'
+dependencies {
+    compile group: 'org.apache.poi', name: 'poi-ooxml', version:'3.8'
+    compile group: 'org.omnaest.utils', name: 'utils-apl-derived-core', version:'0.2.11'
+    testCompile group: 'junit', name: 'junit', version:'4.7'
+}

@@ -1,0 +1,5 @@
+
+description = 'i18nbinder-maven-plugin test'
+dependencies {
+    testCompile group: 'junit', name: 'junit', version:'4.10'
+}

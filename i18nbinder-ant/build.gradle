@@ -1,0 +1,6 @@
+
+description = 'i18nBinder-ant module'
+dependencies {
+  compile project(':i18nbinder-core')
+    compile group: 'org.apache.ant', name: 'ant', version:'1.8.1'
+}

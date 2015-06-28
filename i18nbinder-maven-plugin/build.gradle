@@ -1,0 +1,8 @@
+
+description = 'i18nbinder-maven-plugin Maven Mojo'
+dependencies {
+    compile group: 'org.apache.maven', name: 'maven-plugin-api', version:'3.0.3'
+  compile project(':i18nbinder-core')
+    compile group: 'org.apache.maven', name: 'maven-project', version:'3.0-alpha-2'
+    testCompile group: 'junit', name: 'junit', version:'3.8.1'
+}

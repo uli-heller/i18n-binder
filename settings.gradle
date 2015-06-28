@@ -1,0 +1,10 @@
+rootProject.name = 'i18nbinder-parent'
+include ':i18nbinder-core'
+include ':i18nbinder-maven-plugin'
+include ':i18nbinder-maven-plugin-test'
+include ':i18nbinder-ant'
+
+project(':i18nbinder-core').projectDir = "$rootDir/i18nbinder-core" as File
+project(':i18nbinder-maven-plugin').projectDir = "$rootDir/i18nbinder-maven-plugin" as File
+project(':i18nbinder-maven-plugin-test').projectDir = "$rootDir/i18nbinder-maven-plugin-test" as File
+project(':i18nbinder-ant').projectDir = "$rootDir/i18nbinder-ant" as File
