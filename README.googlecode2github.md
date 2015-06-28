@@ -1,7 +1,7 @@
 I18N-BINDER
 ===========
 
-I copied this from [google code](https://code.google.com/p/i18n-binder/) to [github]https://github.com/uli-heller/i18n-binder). Here is the procedure:
+I copied this from [google code](https://code.google.com/p/i18n-binder/) to [github](https://github.com/uli-heller/i18n-binder). Here is the procedure:
 
 ``` sh
 svn checkout http://i18n-binder.googlecode.com/svn/trunk/ i18n-binder-read-only
