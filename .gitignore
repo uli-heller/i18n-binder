@@ -2,3 +2,7 @@
 *~
 #*
 .gradle
+.project
+.classpath
+.gitignore
+.settings
