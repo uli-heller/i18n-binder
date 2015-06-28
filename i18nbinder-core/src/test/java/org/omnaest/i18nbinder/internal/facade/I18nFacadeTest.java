@@ -69,7 +69,7 @@ public class I18nFacadeTest
   @Test
   public void testSimilarNamedResources()
   {
-    Locale locale = Locale.GERMAN;
+    Locale locale = Locale.GERMANY;
     I18nFacade i18nFacade = new I18nFacade( locale );
     assertEquals( "wert1", i18nFacade.I18n.Sub1.Shared.getMyPropertyKey1() );
     assertEquals( "wert3", i18nFacade.I18n.Sub2.Shared.getMyPropertyKey3() );
